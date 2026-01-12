@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO LIST</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+<body class="h-screen flex justify-center lg:items-center">
+    <div class="w-3/4">
+        <!-- Register form start -->
+        <!-- <div class="bg-orange-500 flex justify-between p-5">
+            <h3 class="text-white text-3xl">TODO App</h3>
+            <div class="flex items-center">
+                <a class="me-10 text-orange-100" href="#">Login</a>
+                <a class="me-10 text-orange-100" href="#">Signup</a>
+            </div>
+        </div>
+        <div class="ps-25 py-10">
+            <h1 class="text-4xl font-semibold">User Register Form</h1>
+            <div class="mt-5">
+                <label class="text-xl" for="">First Name:</label>
+                <div>
+                    <input type="text" class="border px-2 py-1 border-gray-400 w-1/2 rounded-lg mt-3" placeholder="First Name">
+                </div>
+            </div>
+            <div class="mt-5">
+                <label class="text-xl mt-3" for="">Last Name:</label>
+                <div>
+                    <input type="text" class="border px-2 py-1 border-gray-400 w-1/2 rounded-lg mt-3" placeholder="Last Name">
+                </div>
+            </div>
+            <div class="mt-5">
+                <label class="text-xl mt-3" for="">User Name:</label>
+                <div>
+                    <input type="text" class="border px-2 py-1 border-gray-400 w-1/2 rounded-lg mt-3" placeholder="User Name">
+                </div>
+            </div>
+            <div class="mt-5">
+                <label class="text-xl" for="">Password:</label>
+                <div>
+                    <input type="text" class="border px-2 py-1 border-gray-400 w-1/2 rounded-lg mt-3" placeholder="Password">
+                </div>
+            </div>
+            <button class="p-2 mt-5 text-white bg-blue-500 rounded-lg">Submit</button>
+        </div>
+        <div class="bg-orange-500 p-5 text-center">
+            <p class="text-white">© 2019 Copyright: <span class="font-bold text-blue-700">Java Guides</span></p>
+        </div> -->
+        <!-- end register -->
+
+        <!-- login form start -->
+        <!-- <div class="my-60">
+            <div class="bg-orange-500 flex justify-between p-5">
+                <h3 class="text-white text-3xl">TODO App</h3>
+                <div class="flex items-center">
+                    <a class="me-10 text-orange-100" href="#">Login</a>
+                    <a class="me-10 text-orange-100" href="#">Signup</a>
+                </div>
+            </div>
+            <div class="ps-25 py-10">
+                <h1 class="text-4xl font-semibold">Login Form</h1>
+                <div class="mt-5">
+                    <label class="text-xl mt-3" for="">User Name:</label>
+                    <div>
+                        <input type="text" class="border px-2 py-1 border-gray-400 w-1/2 rounded-lg mt-3" placeholder="User Name">
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <label class="text-xl" for="">Password:</label>
+                    <div>
+                        <input type="text" class="border px-2 py-1 border-gray-400 w-1/2 rounded-lg mt-3" placeholder="Password">
+                    </div>
+                </div>
+                <button class="p-2 mt-5 text-white bg-blue-500 rounded-lg">Submit</button>
+            </div>
+            <div class="bg-orange-500 p-5 text-center">
+                <p class="text-white">© 2019 Copyright: <span class="font-bold text-blue-700">Java Guides</span></p>
+            </div>
+        </div> -->
+        <!-- end login -->
+
+        <!-- list session start -->
+        <div class="lg:my-30 my-10">
+            <h3 class="text-center text-3xl bg-fuchsia-200 p-3">TO<span class="text-orange-500">D<i class="fa-regular fa-circle-check"></i></span></h3>
+            <div class="flex justify-between bg-fuchsia-100">
+                <div class="border-b-3 border-orange-500 w-1/2 text-center ">
+                <h3 class="text-xl">Personal</h3>
+                </div>
+                <h3 class="w-1/2 text-center text-xl text-gray-500">Professional</h3>
+            </div>
+            <div class="flex justify-center mt-5">
+                <input type="text" class="lg:w-2/4 md:w-2/3 w-3/5 lg:text-xl md:text-lg text-s bg-fuchsia-200 py-3 px-5 rounded-l-full" placeholder="What do you need to add?">
+                <button class="text-white text-xl bg-teal-700 py-3 px-8 rounded-r-full">ADD</button>
+            </div>
+            <div class="flex justify-center mt-10 ">
+                <div class="lg:w-1/2 md:w-2/3 w-3/4 bg-fuchsia-200 lg:p-10 p-5 rounded-4xl">
+                    <div class="flex justify-between my-5 border-b-1 border-gray-500 pb-3">
+                        <h4 class="text-rose-400"><i class="fa-regular fa-circle-check text-orange-500 me-5"></i><del>Personal Work No. 1</del></h4>
+                        <i class="fa-solid fa-trash text-rose-400"></i>
+                    </div>
+                    <div class="flex justify-between my-5 border-b-1 border-gray-500 pb-3">
+                        <h4 class="text-gray-500"><i class="fa-regular fa-circle text-orange-500 me-5"></i>Personal Work No. 2</h4>
+                        <i class="fa-solid fa-trash text-rose-400"></i>
+                    </div>
+                    <div class="flex justify-between my-5 border-b-1 border-gray-500 pb-3">
+                        <h4 class="text-gray-500"><i class="fa-regular fa-circle text-orange-500 me-5"></i>Personal Work No. 3</h4>
+                        <i class="fa-solid fa-trash text-rose-400"></i>
+                    </div>
+                    <div class="flex justify-between my-5 border-b-1 border-gray-500 pb-3">
+                        <h4 class="text-rose-400"><i class="fa-regular fa-circle-check text-orange-500 me-5"></i><del>Personal Work No. 4</del></h4>
+                        <i class="fa-solid fa-trash text-rose-400"></i>
+                    </div>
+                    <div class="flex justify-between my-5 pb-3">
+                        <h4 class="text-gray-500"><i class="fa-regular fa-circle text-orange-500 me-5"></i>Personal Work No. 5</h4>
+                        <i class="fa-solid fa-trash text-rose-400"></i>
+                    </div>
+                    <p class="text-amber-600 text-right"><i class="bi bi-telephone-plus me-5"></i>Clear Completed</p>
+                </div>
+            </div>
+        </div>
+        <!-- end list -->
+    </div>
+</body>
+</html>
