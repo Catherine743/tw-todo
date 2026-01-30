@@ -22,13 +22,13 @@
                 <div class="mt-5">
                     <label class="text-xl mt-3" for="">User Name:</label>
                     <div>
-                        <input type="text" class="border px-2 py-1 border-gray-400 lg:w-1/2 md:w-2/3 w-3/4 rounded-lg mt-3" placeholder="User Name">
+                        <input type="text" class="border px-2 py-1 border-gray-400 lg:w-1/2 md:w-2/3 w-3/4 rounded-lg mt-3" placeholder="User Name" id="user">
                     </div>
                 </div>
                 <div class="mt-5">
                     <label class="text-xl" for="">Password:</label>
                     <div>
-                        <input type="text" class="border px-2 py-1 border-gray-400 lg:w-1/2 md:w-2/3 w-3/4 rounded-lg mt-3" placeholder="Password">
+                        <input type="text" class="border px-2 py-1 border-gray-400 lg:w-1/2 md:w-2/3 w-3/4 rounded-lg mt-3" placeholder="Password" id="pswd">
                     </div>
                 </div>
                 <div class="mt-10">
@@ -41,4 +41,15 @@
         </div>
     </div>   
 </body>
+<script>
+if (!user.value || !pswd.value) {
+    alert("Please fill all the fields");
+}
+else if (user.value != localStorage.getItem("USER") || pswd.value != localStorage.getItem("PSWD")) {
+    alert("Invalid uername or password")
+}
+else {
+    alert("User logged in successfully")
+}
+</script>
 </html>

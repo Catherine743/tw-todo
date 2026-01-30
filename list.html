@@ -1,53 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO LIST</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
+
 <body class="h-screen flex justify-center lg:items-center">
     <div class="w-3/4">
         <div class="lg:my-30 my-10">
-            <h3 class="text-center text-3xl bg-fuchsia-200 p-3">TO<span class="text-orange-500">D<i class="fa-regular fa-circle-check"></i></span></h3>
+            <h3 class="text-center text-3xl bg-fuchsia-200 p-3">TO<span class="text-orange-500">D<i
+                        class="fa-regular fa-circle-check"></i></span></h3>
             <div class="flex justify-between bg-fuchsia-100">
                 <div class="border-b-3 border-orange-500 w-1/2 text-center ">
-                <h3 class="text-xl">Personal</h3>
+                    <h3 class="text-xl">Personal</h3>
                 </div>
                 <h3 class="w-1/2 text-center text-xl text-gray-500">Professional</h3>
             </div>
             <div class="flex justify-center mt-5">
-                <input type="text" class="lg:w-2/4 md:w-2/3 w-3/5 lg:text-xl md:text-lg text-s bg-fuchsia-200 py-3 px-5 rounded-l-full" placeholder="What do you need to add?">
-                <button class="text-white text-xl bg-teal-700 py-3 px-8 rounded-r-full">ADD</button>
+                <input type="text"
+                    class="lg:w-2/4 md:w-2/3 w-3/5 lg:text-xl md:text-lg text-s bg-fuchsia-200 py-3 px-5 rounded-l-full"
+                    placeholder="What do you need to add?" id="input">
+                <button class="text-white text-xl bg-teal-700 py-3 px-8 rounded-r-full" onclick="addBtn()">ADD</button>
             </div>
             <div class="flex justify-center mt-10 ">
                 <div class="lg:w-1/2 md:w-2/3 w-3/4 bg-fuchsia-200 lg:p-10 p-5 rounded-4xl">
-                    <div class="flex justify-between my-5 border-b-1 border-gray-500 pb-3">
-                        <h4 class="text-rose-400"><i class="fa-regular fa-circle-check text-orange-500 me-5"></i><del>Personal Work No. 1</del></h4>
-                        <i class="fa-solid fa-trash text-rose-400"></i>
+                    <div id="list">
+                        <!-- <div class="flex justify-between my-5 border-b-1 border-gray-500 pb-3" id="task1">
+                            <h4 class="text-gray-500"><i
+                                    class="fa-regular fa-circle text-orange-500 me-5 cursor-pointer" onclick="toggleTask(this)"></i>Personal Work No.
+                                    1</h4>
+                            <i class="fa-regular fa-pen-to-square text-rose-400" onclick="editBtn(this)"></i>
+                            <i class="fa-solid fa-trash text-rose-400" onclick="deleteBtn(this)"></i>
+                        </div>
+                        <div class="flex justify-between my-5 border-b-1 border-gray-500 pb-3" id="task2">
+                            <h4 class="text-gray-500"><i class="fa-regular fa-circle text-orange-500 me-5 cursor-pointer" onclick="toggleTask(this)"></i>Personal
+                                Work No. 2</h4>
+                            <i class="fa-regular fa-pen-to-square text-rose-400" onclick="editBtn(this)"></i>
+                            <i class="fa-solid fa-trash text-rose-400" onclick="deleteBtn(this)"></i>
+                        </div>
+                        <div class="flex justify-between my-5 border-b-1 border-gray-500 pb-3" id="task3">
+                            <h4 class="text-gray-500"><i class="fa-regular fa-circle text-orange-500 me-5 cursor-pointer" onclick="toggleTask(this)"></i>Personal
+                                Work No. 3</h4>
+                            <i class="fa-regular fa-pen-to-square text-rose-400" onclick="editBtn(this)"></i>
+                            <i class="fa-solid fa-trash text-rose-400" onclick="deleteBtn(this)"></i>
+                        </div>
+                        <div class="flex justify-between my-5 border-b-1 border-gray-500 pb-3" id="task4">
+                            <h4 class="text-gray-500"><i
+                                    class="fa-regular fa-circle text-orange-500 me-5 cursor-pointer" onclick="toggleTask(this)"></i>Personal Work No.
+                                    4</h4>
+                            <i class="fa-regular fa-pen-to-square text-rose-400" onclick="editBtn(this)"></i>
+                            <i class="fa-solid fa-trash text-rose-400" onclick="deleteBtn(this)"></i>
+                        </div>
+                        <div class="flex justify-between my-5 pb-3" id="task5">
+                            <h4 class="text-gray-500"><i class="fa-regular fa-circle text-orange-500 me-5 cursor-pointer" onclick="toggleTask(this)"></i>Personal
+                                Work No. 5</h4>
+                            <i class="fa-regular fa-pen-to-square text-rose-400" onclick="editBtn(this)"></i>
+                            <i class="fa-solid fa-trash text-rose-400" onclick="deleteBtn(this)"></i>
+                        </div> -->
+                        <!-- <div id="add"></div> -->
                     </div>
-                    <div class="flex justify-between my-5 border-b-1 border-gray-500 pb-3">
-                        <h4 class="text-gray-500"><i class="fa-regular fa-circle text-orange-500 me-5"></i>Personal Work No. 2</h4>
-                        <i class="fa-solid fa-trash text-rose-400"></i>
-                    </div>
-                    <div class="flex justify-between my-5 border-b-1 border-gray-500 pb-3">
-                        <h4 class="text-gray-500"><i class="fa-regular fa-circle text-orange-500 me-5"></i>Personal Work No. 3</h4>
-                        <i class="fa-solid fa-trash text-rose-400"></i>
-                    </div>
-                    <div class="flex justify-between my-5 border-b-1 border-gray-500 pb-3">
-                        <h4 class="text-rose-400"><i class="fa-regular fa-circle-check text-orange-500 me-5"></i><del>Personal Work No. 4</del></h4>
-                        <i class="fa-solid fa-trash text-rose-400"></i>
-                    </div>
-                    <div class="flex justify-between my-5 pb-3">
-                        <h4 class="text-gray-500"><i class="fa-regular fa-circle text-orange-500 me-5"></i>Personal Work No. 5</h4>
-                        <i class="fa-solid fa-trash text-rose-400"></i>
-                    </div>
-                    <p class="text-amber-600 text-right"><i class="bi bi-telephone-plus me-5"></i>Clear Completed</p>
+                    <p class="text-amber-600 text-right cursor-pointer" onclick="clearCompleted()"><i class="bi bi-telephone-plus me-5"></i>Clear Completed</p>
                 </div>
             </div>
         </div>
     </div>
 </body>
+<!-- <script>
+    function addBtn() {
+        result = input.value;
+        alert("Task added successfully");
+        list.innerHTML += `
+            <div class="flex justify-between my-5 pb-3 border-b border-gray-500" id="task${list.childElementCount}">
+                <h4 class="text-gray-500"><i class="fa-regular fa-circle text-orange-500 me-5 cursor-pointer" onclick = "toggleTask(this)"></i>${result}</h4>
+                <i class="fa-regular fa-pen-to-square text-rose-400 cursor-pointer" onclick="editBtn()"></i>
+                <i class="fa-solid fa-trash text-rose-400 cursor-pointer" onclick="deleteBtn()"></i>
+            </div>
+        `
+    }
+    function deleteBtn(ele) {
+        ele.parentElement.remove();
+        alert("Task deleted successfully");
+    }
+    function editBtn(ele) {
+        task = prompt("Enter task name: ");
+        ele.parentElement.children[0].innerHTML = `
+        <h4 class="text-gray-500"><i class="fa-regular fa-circle text-orange-500 me-5"></i>${task}</h4>
+        `
+        alert("Task edited successfully")
+    }
+
+    function toggleTask(ele) {
+    const text = ele.nextSibling; // text node after icon
+
+    if (ele.classList.contains("fa-circle")) {
+        ele.classList.remove("fa-circle");
+        ele.classList.add("fa-circle-check");
+
+        text.parentElement.classList.add("line-through", "text-gray-400");
+        text.parentElement.classList.remove("text-gray-500");
+    } else {
+        ele.classList.remove("fa-circle-check");
+        ele.classList.add("fa-circle");
+
+        text.parentElement.classList.remove("line-through", "text-gray-400");
+        text.parentElement.classList.add("text-gray-500");
+    }
+}
+
+</script> -->
+<script>
+    list = document.getElementById("list");
+    input = document.getElementById("input");
+
+    function addBtn() {
+        if (input.value.trim() === "") {
+            alert("Please enter a task");
+            return;
+        }
+
+        // parent div
+        taskDiv = document.createElement("div");
+        taskDiv.className = "flex justify-between my-5 pb-3 border-b border-gray-500";
+
+        // h4
+        h4 = document.createElement("h4");
+        h4.className = "text-gray-500 flex items-center";
+
+        // toggle icon
+        icon = document.createElement("i");
+        icon.className = "fa-regular fa-circle text-orange-500 me-5 cursor-pointer";
+        icon.onclick = () => toggleTask(icon);
+
+        // task text
+        span = document.createElement("span");
+        span.innerText = input.value;
+
+        h4.appendChild(icon);
+        h4.appendChild(span);
+
+        // edit icon
+        edit = document.createElement("i");
+        edit.className = "fa-regular fa-pen-to-square text-rose-400 cursor-pointer";
+        edit.onclick = () => editBtn(taskDiv);
+
+        // delete icon
+        del = document.createElement("i");
+        del.className = "fa-solid fa-trash text-rose-400 cursor-pointer";
+        del.onclick = () => deleteBtn(taskDiv);
+
+        taskDiv.appendChild(h4);
+        taskDiv.appendChild(edit);
+        taskDiv.appendChild(del);
+
+        list.appendChild(taskDiv);
+
+        input.value = "";
+        alert("Task added successfully");
+    }
+
+    function deleteBtn(taskDiv) {
+        list.removeChild(taskDiv);
+        alert("Task deleted successfully");
+    }
+
+    function editBtn(taskDiv) {
+        oldH4 = taskDiv.querySelector("h4");
+        oldText = oldH4.querySelector("span").innerText;
+
+        newTask = prompt("Edit task:", oldText);
+        if (!newTask) return;
+
+        newH4 = document.createElement("h4");
+        newH4.className = oldH4.className;
+
+        icon = document.createElement("i");
+        icon.className = "fa-regular fa-circle text-orange-500 me-5 cursor-pointer";
+        icon.onclick = () => toggleTask(icon);
+
+        span = document.createElement("span");
+        span.innerText = newTask;
+
+        newH4.appendChild(icon);
+        newH4.appendChild(span);
+
+        taskDiv.replaceChild(newH4, oldH4);
+        alert("Task updated successfully");
+    }
+
+    function toggleTask(icon) {
+        span = icon.nextSibling;
+
+        if (icon.classList.contains("fa-circle")) {
+            icon.classList.replace("fa-circle", "fa-circle-check");
+            span.classList.add("line-through", "text-gray-400");
+        } else {
+            icon.classList.replace("fa-circle-check", "fa-circle");
+            span.classList.remove("line-through", "text-gray-400");
+        }
+    }
+
+    function clearCompleted() {
+        alert("Tasks cleared successfully")
+        for (i = list.children.length - 1; i >= 0; i--) {
+            list.children[i].remove();
+        }
+    }
+</script>
+
 </html>

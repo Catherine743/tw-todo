@@ -20,25 +20,25 @@
             <div class="mt-5">
                 <label class="text-xl" for="">First Name:</label>
                 <div>
-                    <input type="text" class="border px-2 py-1 border-gray-400 lg:w-1/2 w-3/4 md:w-1/2 rounded-lg mt-3" placeholder="First Name">
+                    <input type="text" class="border px-2 py-1 border-gray-400 lg:w-1/2 w-3/4 md:w-1/2 rounded-lg mt-3" placeholder="First Name" id="fname">
                 </div>
             </div>
             <div class="mt-5">
                 <label class="text-xl mt-3" for="">Last Name:</label>
                 <div>
-                    <input type="text" class="border px-2 py-1 border-gray-400 lg:w-1/2 w-3/4 md:w-1/2 rounded-lg mt-3" placeholder="Last Name">
+                    <input type="text" class="border px-2 py-1 border-gray-400 lg:w-1/2 w-3/4 md:w-1/2 rounded-lg mt-3" placeholder="Last Name" id="lname">
                 </div>
             </div>
             <div class="mt-5">
                 <label class="text-xl mt-3" for="">User Name:</label>
                 <div>
-                    <input type="text" class="border px-2 py-1 border-gray-400 lg:w-1/2 w-3/4 md:w-1/2 rounded-lg mt-3" placeholder="User Name">
+                    <input type="text" class="border px-2 py-1 border-gray-400 lg:w-1/2 w-3/4 md:w-1/2 rounded-lg mt-3" placeholder="User Name" id="username">
                 </div>
             </div>
             <div class="mt-5">
                 <label class="text-xl" for="">Password:</label>
                 <div>
-                    <input type="text" class="border px-2 py-1 border-gray-400 lg:w-1/2 w-3/4 md:w-1/2 rounded-lg mt-3" placeholder="Password">
+                    <input type="text" class="border px-2 py-1 border-gray-400 lg:w-1/2 w-3/4 md:w-1/2 rounded-lg mt-3" placeholder="Password" id="pswd">
                 </div>
             </div>
             <div class="mt-10">
@@ -50,4 +50,16 @@
         </div>
     </div>
 </body>
+<script>
+    if(!username.value || !pswd.value || !fname.value || !lname.value) {
+        alert("Please fill all the fields")
+    }
+    else {
+        alert("User registered successfully")
+        localStorage.setItem("USER", username.value);
+        localStorage.setItem("PSWD",pswd.value);
+        localStorage.setItem("FIRSTNAME",fname.value);
+        localStorage.setItem("LASTNAME",lname.value);
+    }
+</script>
 </html>
