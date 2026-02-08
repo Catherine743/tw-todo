@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Form</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
+
 <body class="flex justify-center">
     <div class="w-3/4">
         <div class="bg-orange-500 flex justify-between p-5">
@@ -20,29 +22,33 @@
             <div class="mt-5">
                 <label class="text-xl" for="">First Name:</label>
                 <div>
-                    <input type="text" class="border px-2 py-1 border-gray-400 lg:w-1/2 w-3/4 md:w-1/2 rounded-lg mt-3" placeholder="First Name" id="fname">
+                    <input type="text" class="border px-2 py-1 border-gray-400 lg:w-1/2 w-3/4 md:w-1/2 rounded-lg mt-3"
+                        placeholder="First Name" id="fname">
                 </div>
             </div>
             <div class="mt-5">
                 <label class="text-xl mt-3" for="">Last Name:</label>
                 <div>
-                    <input type="text" class="border px-2 py-1 border-gray-400 lg:w-1/2 w-3/4 md:w-1/2 rounded-lg mt-3" placeholder="Last Name" id="lname">
+                    <input type="text" class="border px-2 py-1 border-gray-400 lg:w-1/2 w-3/4 md:w-1/2 rounded-lg mt-3"
+                        placeholder="Last Name" id="lname">
                 </div>
             </div>
             <div class="mt-5">
                 <label class="text-xl mt-3" for="">User Name:</label>
                 <div>
-                    <input type="text" class="border px-2 py-1 border-gray-400 lg:w-1/2 w-3/4 md:w-1/2 rounded-lg mt-3" placeholder="User Name" id="username">
+                    <input type="text" class="border px-2 py-1 border-gray-400 lg:w-1/2 w-3/4 md:w-1/2 rounded-lg mt-3"
+                        placeholder="User Name" id="username">
                 </div>
             </div>
             <div class="mt-5">
                 <label class="text-xl" for="">Password:</label>
                 <div>
-                    <input type="text" class="border px-2 py-1 border-gray-400 lg:w-1/2 w-3/4 md:w-1/2 rounded-lg mt-3" placeholder="Password" id="pswd">
+                    <input type="text" class="border px-2 py-1 border-gray-400 lg:w-1/2 w-3/4 md:w-1/2 rounded-lg mt-3"
+                        placeholder="Password" id="pswd">
                 </div>
             </div>
             <div class="mt-10">
-                <a href="./login.html" class="p-2 text-white bg-blue-500 rounded-lg">Submit</a>
+                <a href="./login.html" class="p-2 text-white bg-blue-500 rounded-lg" onclick="submitBtn()">Submit</a>
             </div>
         </div>
         <div class="bg-orange-500 p-5 text-center">
@@ -51,15 +57,18 @@
     </div>
 </body>
 <script>
-    if(!username.value || !pswd.value || !fname.value || !lname.value) {
-        alert("Please fill all the fields")
-    }
-    else {
-        alert("User registered successfully")
-        localStorage.setItem("USER", username.value);
-        localStorage.setItem("PSWD",pswd.value);
-        localStorage.setItem("FIRSTNAME",fname.value);
-        localStorage.setItem("LASTNAME",lname.value);
+    function submitBtn() {
+        if (!username.value || !pswd.value || !fname.value || !lname.value) {
+            alert("Please fill all the fields")
+        }
+        else {
+            alert("User registered successfully")
+            localStorage.setItem("USER", username.value);
+            localStorage.setItem("PSWD", pswd.value);
+            localStorage.setItem("FIRSTNAME", fname.value);
+            localStorage.setItem("LASTNAME", lname.value);
+        }
     }
 </script>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
 </head>
+
 <body class="h-screen flex justify-center items-start lg:items-center">
     <div class="w-3/4">
         <div class="lg:my-60">
@@ -22,34 +24,42 @@
                 <div class="mt-5">
                     <label class="text-xl mt-3" for="">User Name:</label>
                     <div>
-                        <input type="text" class="border px-2 py-1 border-gray-400 lg:w-1/2 md:w-2/3 w-3/4 rounded-lg mt-3" placeholder="User Name" id="user">
+                        <input type="text"
+                            class="border px-2 py-1 border-gray-400 lg:w-1/2 md:w-2/3 w-3/4 rounded-lg mt-3"
+                            placeholder="User Name" id="user">
                     </div>
                 </div>
                 <div class="mt-5">
                     <label class="text-xl" for="">Password:</label>
                     <div>
-                        <input type="text" class="border px-2 py-1 border-gray-400 lg:w-1/2 md:w-2/3 w-3/4 rounded-lg mt-3" placeholder="Password" id="pswd">
+                        <input type="text"
+                            class="border px-2 py-1 border-gray-400 lg:w-1/2 md:w-2/3 w-3/4 rounded-lg mt-3"
+                            placeholder="Password" id="pswd">
                     </div>
                 </div>
                 <div class="mt-10">
-                    <a href="./list.html" class="p-2 text-white bg-blue-500 rounded-lg">Submit</a>
+                    <a href="./list.html" class="p-2 text-white bg-blue-500 rounded-lg" onclick="submitBtn()">Submit</a>
                 </div>
             </div>
             <div class="bg-orange-500 p-5 text-center">
                 <p class="text-white">© 2019 Copyright: <span class="font-bold text-blue-700">Java Guides</span></p>
             </div>
         </div>
-    </div>   
+    </div>
 </body>
 <script>
-if (!user.value || !pswd.value) {
-    alert("Please fill all the fields");
-}
-else if (user.value != localStorage.getItem("USER") || pswd.value != localStorage.getItem("PSWD")) {
-    alert("Invalid uername or password")
-}
-else {
-    alert("User logged in successfully")
-}
+
+    function submitBtn() {
+        if (!user.value || !pswd.value) {
+            alert("Please fill all the fields");
+        }
+        else if (user.value != localStorage.getItem("USER") || pswd.value != localStorage.getItem("PSWD")) {
+            alert("Invalid uername or password")
+        }
+        else {
+            alert("User logged in successfully")
+        }
+    }
 </script>
+
 </html>
