@@ -27,7 +27,9 @@
                 <input type="text"
                     class="lg:w-2/4 md:w-2/3 w-full lg:text-xl md:text-lg text-md bg-fuchsia-200 py-3 lg:px-5 md:px-5 px-2 rounded-l-full"
                     placeholder="What do you need to add?" id="input">
-                <button class="text-white lg:text-xl md:text-xl text-lg bg-teal-700 py-3 lg:px-8 md:px-8 px-3 rounded-r-full" onclick="addBtn()">ADD</button>
+                <button
+                    class="text-white lg:text-xl md:text-xl text-lg bg-teal-700 py-3 lg:px-8 md:px-8 px-3 rounded-r-full"
+                    onclick="addBtn()">ADD</button>
             </div>
             <div class="flex justify-center mt-10 ">
                 <div class="lg:w-1/2 md:w-2/3 w-full bg-fuchsia-200 lg:p-10 p-5 rounded-4xl">
@@ -66,7 +68,8 @@
                         </div> -->
                         <!-- <div id="add"></div> -->
                     </div>
-                    <p class="text-amber-600 text-right cursor-pointer" onclick="clearCompleted()"><i class="bi bi-telephone-plus me-5"></i>Clear Completed</p>
+                    <p class="text-amber-600 text-right cursor-pointer" onclick="clearCompleted()"><i
+                            class="bi bi-telephone-plus me-5"></i>Clear Completed</p>
                 </div>
             </div>
         </div>
@@ -119,12 +122,39 @@
     list = document.getElementById("list");
     input = document.getElementById("input");
 
+    // Load tasks from localStorage on page load
+    window.onload = function () {
+        savedTasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+        savedTasks.forEach(task => createTaskElement(task.text, task.completed));
+    };
+
+    function saveTasks() {
+        tasks = [];
+        list.querySelectorAll("div").forEach(taskDiv => {
+            span = taskDiv.querySelector("span");
+            icon = taskDiv.querySelector("i");
+            tasks.push({
+                text: span.innerText,
+                completed: icon.classList.contains("fa-circle-check")
+            });
+        });
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+    
     function addBtn() {
         if (input.value.trim() === "") {
             alert("Please enter a task");
             return;
         }
 
+        createTaskElement(input.value, false);
+        input.value = "";
+        alert("Task added successfully");
+
+        saveTasks();
+    }
+
+    function createTaskElement(taskText, completed) {
         // parent div
         taskDiv = document.createElement("div");
         taskDiv.className = "flex justify-between my-5 pb-3 border-b border-gray-500";
@@ -135,12 +165,17 @@
 
         // toggle icon
         icon = document.createElement("i");
-        icon.className = "fa-regular fa-circle text-orange-500 me-5 cursor-pointer";
-        icon.onclick = () => toggleTask(icon);
+        icon.className = completed
+            ? "fa-regular fa-circle-check text-orange-500 me-5 cursor-pointer"
+            : "fa-regular fa-circle text-orange-500 me-5 cursor-pointer";
+        icon.onclick = () => { toggleTask(icon); saveTasks(); };
 
         // task text
         span = document.createElement("span");
-        span.innerText = input.value;
+        span.innerText = taskText;
+        if (completed) {
+            span.classList.add("line-through", "text-gray-400");
+        }
 
         h4.appendChild(icon);
         h4.appendChild(span);
@@ -148,21 +183,18 @@
         // edit icon
         edit = document.createElement("i");
         edit.className = "fa-regular fa-pen-to-square text-rose-400 cursor-pointer";
-        edit.onclick = () => editBtn(taskDiv);
+        edit.onclick = () => { editBtn(taskDiv); saveTasks(); };
 
         // delete icon
         del = document.createElement("i");
         del.className = "fa-solid fa-trash text-rose-400 cursor-pointer";
-        del.onclick = () => deleteBtn(taskDiv);
+        del.onclick = () => { deleteBtn(taskDiv); saveTasks(); };
 
         taskDiv.appendChild(h4);
         taskDiv.appendChild(edit);
         taskDiv.appendChild(del);
 
         list.appendChild(taskDiv);
-
-        input.value = "";
-        alert("Task added successfully");
     }
 
     function deleteBtn(taskDiv) {
@@ -181,11 +213,14 @@
         newH4.className = oldH4.className;
 
         icon = document.createElement("i");
-        icon.className = "fa-regular fa-circle text-orange-500 me-5 cursor-pointer";
-        icon.onclick = () => toggleTask(icon);
+        icon.className = oldH4.querySelector("i").className;
+        icon.onclick = () => { toggleTask(icon); saveTasks(); };
 
         span = document.createElement("span");
         span.innerText = newTask;
+        if (icon.classList.contains("fa-circle-check")) {
+            span.classList.add("line-through", "text-gray-400");
+        }
 
         newH4.appendChild(icon);
         newH4.appendChild(span);
@@ -204,13 +239,19 @@
             icon.classList.replace("fa-circle-check", "fa-circle");
             span.classList.remove("line-through", "text-gray-400");
         }
+        saveTasks();
     }
 
     function clearCompleted() {
-        alert("Tasks cleared successfully")
         for (i = list.children.length - 1; i >= 0; i--) {
-            list.children[i].remove();
+            taskDiv = list.children[i];
+            icon = taskDiv.querySelector("i");
+            if (icon.classList.contains("fa-circle-check")) {
+                list.removeChild(taskDiv);
+            }
         }
+        alert("Completed tasks cleared successfully");
+        saveTasks();
     }
 </script>
 
